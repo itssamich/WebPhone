@@ -18,7 +18,7 @@ def register(request):
     return render(request, 'user/register.html', {'form': form})
 
 def profile(request, username):
-    current_user = User.objects.get(username=username)
+    current_user = User.objects.get(pk=username)
 
     posts = Post.objects.filter(author=current_user)
     paginator = Paginator(posts, 5)
@@ -28,7 +28,7 @@ def profile(request, username):
 
     return render(request, 'user/profile.html', {'user': current_user, 'posts':posts})
 
-def createPost(request):
+def createPost(request, username):
     if request.method == 'POST':
         form = postCreationForm(request.POST)
         if form.is_valid():

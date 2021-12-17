@@ -16,7 +16,7 @@
                     <a href="{%  url 'spotify:index' %}" class="nav-item nav-link log">Spotify</a>     
                 </div>
                 <div class="navbar">
-                    <a href="{% url 'user:createPost' %}" class="nav-item nav-link log">+</a>
+                    <a href="{% url 'user:createPost' user.username %}" class="nav-item nav-link log">+</a>
                     <a href="{%  url 'user:profile' user.username %}" class="nav-item nav-link log">{{user.username}}</a>
                     <a href="{%  url 'Logout' %}" class="nav-item nav-link log">Logout</a>
                 </div>
