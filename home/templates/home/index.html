@@ -15,7 +15,7 @@
             {% for post in posts%}
                 <div class="post">
                     <div class="author">
-                        {{post.author}} <!--This is going to be a link to a user profile page-->
+                        <a href="{%  url 'user:profile' post.author %}"><h5>{{post.author}}</h5></a> <!--This is going to be a link to a user profile page-->
                     </div>
                     <div class="body">
                         {{post.body}}

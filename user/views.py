@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from .forms import RegistrationForm, postCreationForm
 from django.core.paginator import Paginator
-from user.models import Post
+from user.models import Post, User
 
 # Create your views here.
 def register(request):
@@ -18,7 +18,7 @@ def register(request):
     return render(request, 'user/register.html', {'form': form})
 
 def profile(request, username):
-    current_user = request.user
+    current_user = User.objects.get(username=username)
 
     posts = Post.objects.filter(author=current_user)
     paginator = Paginator(posts, 5)
