@@ -1,0 +1,4 @@
+div.trackInfo{
+    border: 1px solid black !important;
+    display: flex !important;
+}

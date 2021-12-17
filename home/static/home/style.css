@@ -1,0 +1,23 @@
+.menuDropDown{
+    margin-left: 1rem !important;
+}
+.trackInfo{
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 1px solid black !important;
+    display: flex !important;
+}
+.trackInfo:hover{
+    outline: 2px solid blue !important;
+}
+.trackImage{
+    margin-right: 1rem !important;
+}
+.trackTitle{
+    font-weight: bold !important;
+}
+
+.post{
+    border: 1px solid black !important;
+
+}

@@ -1,0 +1,43 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+
+{% block body%}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for=""><h3>Artist</h3></label>
+        <input type="text" class="form-control" id="artist" placeholder="Artist Name" name="artist">
+    </div>
+    <div class="form-group">
+        <label for=""><h3>Song</h3></label>
+        <input type="text" class="form-control" id="song" placeholder="Song Name" name="song">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% if search %}
+<h1>{{artist}}</h1>
+<ol class="topSongs">
+    {% for x in search.tracks.items%}
+    <li class="song">
+        <div class="trackInfo">
+            <div class="trackImage">
+                <img src="{{x.album.images.2.url}}">
+            </div>
+            <div class="trackData">
+                <div class="trackTitle">
+                    {{x.name}}
+                </div>
+                <div class="trackArtists">
+                    {% for y in x.artists%}
+                    <span>{{y.name}}, </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ol>
+{% endif %}
+{% endblock %}
